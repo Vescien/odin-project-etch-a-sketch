@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const btn = document.querySelector(".grid-button");
 
 let containerSize = 600;
 container.style.width = `${containerSize}px`;
@@ -30,3 +31,14 @@ function randomColor() {
 }
 
 createGrid(gridSize, boxSize);
+
+btn.addEventListener("click", () => {
+    let value = Number(prompt("Grid size(Max: 100): "));
+    while (value <= 0 || value > 100 || !Number.isInteger(value)) {
+        value = Number(prompt("Grid size(Max: 100): "));
+    }
+    if (value) {
+        container.innerHTML = "";
+        createGrid(value, containerSize / value);
+    }
+})

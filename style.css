@@ -4,6 +4,7 @@ html {
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-color: bisque;
 }
 
 *,
@@ -17,7 +18,7 @@ html {
 .container {
     display: flex;
     flex-wrap: wrap;
-    background-color: bisque;
+    background-color: white;
 }
 
 /* .grid:hover {
