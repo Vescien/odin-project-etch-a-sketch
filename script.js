@@ -1,11 +1,14 @@
 const container = document.querySelector(".container");
+let containerSize = 600;
+container.style.width = `${containerSize}px`;
+container.style.height = `${containerSize}px`;
 
-let n = 20;
-let boxSize = 500 / n;
+let gridSize = 16;
+let boxSize = containerSize / gridSize;
 
-function createGrid(n, boxSize) {
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
+function createGrid(gridSize, boxSize) {
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
             let box = document.createElement("div");
             box.classList.add("grid")
             box.style.height = `${boxSize}px`;
@@ -15,4 +18,4 @@ function createGrid(n, boxSize) {
     }
 }
 
-createGrid(n, boxSize);
+createGrid(gridSize, boxSize);

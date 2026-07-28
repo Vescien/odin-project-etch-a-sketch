@@ -17,7 +17,9 @@ html {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
     background-color: bisque;
+}
+
+.grid:hover {
+    background-color: black;
 }
