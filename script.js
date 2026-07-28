@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".grid-container");
 const btn = document.querySelector(".grid-button");
 const displayGridSize = document.querySelector(".displayGridSize");
 
@@ -8,7 +8,7 @@ container.style.height = `${containerSize}px`;
 
 let gridSize = 16;
 let boxSize = containerSize / gridSize;
-displayGridSize.textContent = `${ gridSize } x ${gridSize }`;
+displayGridSize.textContent = `${gridSize} x ${gridSize}`;
 
 function createGrid(gridSize, boxSize) {
     for (let i = 0; i < gridSize; i++) {
