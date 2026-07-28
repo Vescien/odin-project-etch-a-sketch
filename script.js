@@ -18,17 +18,16 @@ function createGrid(gridSize, boxSize) {
             box.style.height = `${boxSize}px`;
             box.style.width = `${boxSize}px`;
             container.appendChild(box); 
-            box.addEventListener("mouseover", () => box.style.backgroundColor = randomColor());
+            box.addEventListener("mouseover", () => box.style.backgroundColor = randomColorRGB());
         }
     }
 }
 
-function randomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
+function randomColorRGB() {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    let color = `rgb(${red}, ${green}, ${blue})`;
     return color;
 }
 
