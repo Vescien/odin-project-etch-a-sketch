@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const btn = document.querySelector(".grid-button");
+const displayGridSize = document.querySelector(".displayGridSize");
 
 let containerSize = 600;
 container.style.width = `${containerSize}px`;
@@ -7,6 +8,7 @@ container.style.height = `${containerSize}px`;
 
 let gridSize = 16;
 let boxSize = containerSize / gridSize;
+displayGridSize.textContent = `${ gridSize } x ${gridSize }`;
 
 function createGrid(gridSize, boxSize) {
     for (let i = 0; i < gridSize; i++) {
@@ -40,5 +42,6 @@ btn.addEventListener("click", () => {
     if (value) {
         container.innerHTML = "";
         createGrid(value, containerSize / value);
+        displayGridSize.textContent = `${value} x ${value}`;
     }
 })
