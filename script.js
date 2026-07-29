@@ -4,6 +4,7 @@ const displayGridSize = document.querySelector(".displayGridSize");
 const solidBtn = document.querySelector(".solid-button");
 const rainbowBtn = document.querySelector(".rainbow-button");
 const eraserBtn = document.querySelector(".eraser-button");
+const toggleButtons = document.querySelectorAll("#toggle")
 
 let containerSize = 600;
 let gridSize = 16;
@@ -16,14 +17,17 @@ displayGridSize.textContent = `${gridSize} x ${gridSize}`;
 
 solidBtn.addEventListener("click", () => {
     currentMode = "solid";
+    selectedButtonColor(solidBtn);
 });
 
 rainbowBtn.addEventListener("click", () => {
     currentMode = "rainbow";
+    selectedButtonColor(rainbowBtn);
 });
 
 eraserBtn.addEventListener("click", () => {
     currentMode = "eraser";
+    selectedButtonColor(eraserBtn);
 });
 
 function createGrid(gridSize, boxSize) {
@@ -55,6 +59,13 @@ function randomColorRGB() {
     let blue = Math.floor(Math.random() * 256);
     let color = `rgb(${red}, ${green}, ${blue})`;
     return color;
+}
+
+function selectedButtonColor(button) {
+    for (btn of toggleButtons) {
+        btn.style.backgroundColor = "";
+    }
+    button.style.backgroundColor = "#84f542";
 }
 
 gridSizeBtn.addEventListener("click", () => {
