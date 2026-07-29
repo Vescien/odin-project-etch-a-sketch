@@ -1,14 +1,30 @@
 const container = document.querySelector(".grid-container");
-const btn = document.querySelector(".grid-button");
+const gridSizeBtn = document.querySelector(".grid-button");
 const displayGridSize = document.querySelector(".displayGridSize");
+const solidBtn = document.querySelector(".solid-button");
+const rainbowBtn = document.querySelector(".rainbow-button");
+const eraserBtn = document.querySelector(".eraser-button");
 
 let containerSize = 600;
-container.style.width = `${containerSize}px`;
-container.style.height = `${containerSize}px`;
-
 let gridSize = 16;
 let boxSize = containerSize / gridSize;
+let currentMode = "solid";
+
+container.style.width = `${containerSize}px`;
+container.style.height = `${containerSize}px`;
 displayGridSize.textContent = `${gridSize} x ${gridSize}`;
+
+solidBtn.addEventListener("click", () => {
+    currentMode = "solid";
+});
+
+rainbowBtn.addEventListener("click", () => {
+    currentMode = "rainbow";
+});
+
+eraserBtn.addEventListener("click", () => {
+    currentMode = "eraser";
+});
 
 function createGrid(gridSize, boxSize) {
     for (let i = 0; i < gridSize; i++) {
@@ -17,8 +33,18 @@ function createGrid(gridSize, boxSize) {
             box.classList.add("grid")
             box.style.height = `${boxSize}px`;
             box.style.width = `${boxSize}px`;
-            container.appendChild(box); 
-            box.addEventListener("mouseover", () => box.style.backgroundColor = randomColorRGB());
+            container.appendChild(box);
+            box.addEventListener("mouseover", () => {
+                if (currentMode === "solid") {
+                    box.style.backgroundColor = "black";
+                    box.style.opacity = "1";
+                } else if (currentMode === "rainbow") {
+                    box.style.backgroundColor = randomColorRGB();
+                    box.style.opacity = "1";
+                } else if (currentMode === "eraser") {
+                    box.style.opacity -= "0.5";
+                }
+            })
         }
     }
 }
@@ -31,9 +57,7 @@ function randomColorRGB() {
     return color;
 }
 
-createGrid(gridSize, boxSize);
-
-btn.addEventListener("click", () => {
+gridSizeBtn.addEventListener("click", () => {
     let value = Number(prompt("Grid size(Max: 100): "));
     while (value <= 0 || value > 100 || !Number.isInteger(value)) {
         value = Number(prompt("Grid size(Max: 100): "));
@@ -44,3 +68,5 @@ btn.addEventListener("click", () => {
         displayGridSize.textContent = `${value} x ${value}`;
     }
 })
+
+createGrid(gridSize, boxSize);

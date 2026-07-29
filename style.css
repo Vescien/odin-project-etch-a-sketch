@@ -17,16 +17,15 @@ html {
 
 .container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
 
-.displayGridSize {
-    font-size: 26px;
-    text-align: center;
-    margin-top: 4px;
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .grid-container {
@@ -35,13 +34,17 @@ html {
     background-color: white;
 }
 
-.grid-button {
+.grid-button, 
+.solid-button,
+.rainbow-button,
+.eraser-button {
     font-size: 20px;
     font-weight: 700;
     padding: 8px 16px;
     border-radius: 20px;
     border: 2px solid black;
 }
+
 
 
 
