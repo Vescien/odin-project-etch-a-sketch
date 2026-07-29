@@ -17,6 +17,7 @@ html {
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -24,8 +25,9 @@ html {
 
 .button-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 10px;
+    
 }
 
 .grid-container {
@@ -40,9 +42,10 @@ html {
 .eraser-button {
     font-size: 20px;
     font-weight: 700;
-    padding: 8px 16px;
+    padding: 0 16px;
     border-radius: 20px;
     border: 2px solid black;
+    width: 7em;
 }
 
 

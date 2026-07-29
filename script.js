@@ -81,3 +81,4 @@ gridSizeBtn.addEventListener("click", () => {
 })
 
 createGrid(gridSize, boxSize);
+selectedButtonColor(solidBtn);
