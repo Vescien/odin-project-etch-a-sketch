@@ -9,7 +9,7 @@ const toggleButtons = document.querySelectorAll("#toggle")
 let containerSize = 600;
 let gridSize = 16;
 let boxSize = containerSize / gridSize;
-let currentMode = "solid";
+let currentMode = "";
 
 container.style.width = `${containerSize}px`;
 container.style.height = `${containerSize}px`;
@@ -81,4 +81,3 @@ gridSizeBtn.addEventListener("click", () => {
 })
 
 createGrid(gridSize, boxSize);
-selectedButtonColor(solidBtn);
